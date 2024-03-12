@@ -18,19 +18,20 @@ resource "azurerm_storage_account" "eastus-resume-fe-sa" {
 
 locals {
   mime_types = jsondecode(file("${path.module}/mime.json"))
+  site_path = "${path.root}/src"
 }
 
-resource "azurerm_storage_blob" "static_site_files" {
-  for_each = fileset(path.module, "src/*")
 
-  name                   = trim(each.key, "src/")
+resource "azurerm_storage_blob" "static_site_files" {
+  for_each = fileset("${path.root}/../src/", "**/*")
+  name                   = basename(each.key)
   storage_account_name   = azurerm_storage_account.eastus-resume-fe-sa.name
   storage_container_name = "$web"
   type                   = "Block"
-  source                 = each.key
-  content_md5            = filemd5(each.key)
+  source                 = "${path.root}/../src/${each.key}"
+  content_md5            = filemd5("${path.root}/../src/${each.key}")
 
-  content_type = lookup(local.mime_types, regex("\\.[^.]+$", each.value), null)
+  content_type = lookup(local.mime_types, try(regex("\\.[^.]+$", each.value), "default.txt"), "text")
 
 
 }

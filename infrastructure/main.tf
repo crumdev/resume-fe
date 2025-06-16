@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "rg-eastus-resume-fe" {
 }
 
 resource "azurerm_storage_account" "sa-eastus-resume-fe" {
-  name                = "sa-crumdev-resume-fe"
+  name                = "sacrumdevresumefe"
   resource_group_name = azurerm_resource_group.rg-eastus-resume-fe.name
   location            = azurerm_resource_group.rg-eastus-resume-fe.location
   account_tier        = "Standard"

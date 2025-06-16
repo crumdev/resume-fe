@@ -36,3 +36,5 @@ terraform.rc
 **/*credential*
 **/*password*
 **/*secret*
+
+azure-credentials.json

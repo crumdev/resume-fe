@@ -1,45 +1,61 @@
-name: ci
-
+## On branches other than main, lint the terraform code under infrastructure. When main is pushed, 
+# apply the terraform code under infrastructure.
+name: CI
 on:
   push:
     branches:
       - main
-      - master
+      - 'feature/*'
+      - 'bugfix/*'
+      - 'hotfix/*'
   pull_request:
     branches:
       - main
-      - master
+      - 'feature/*'
+      - 'bugfix/*'
+      - 'hotfix/*'
+      
+env:
+  TF_VAR_client_id: ${{ secrets.AZURE_CLIENT_ID }}
+  TF_VAR_client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+  TF_VAR_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  TF_VAR_tenant_id: ${{ secrets.AZURE_TENANT_ID }}
 
 jobs:
-  ci:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [lts/*]
-
+  lint:
+    name: Lint Terraform Code
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/main'
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@master
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Setup node env 🏗
-        uses: actions/setup-node@v3.0.0
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
         with:
-          node-version: ${{ matrix.node }}
-          check-latest: true
+          terraform_version: 1.5.0
 
-      - name: Cache node_modules 📦
-        uses: actions/cache@v2.1.7
+      - name: Lint Terraform code
+        run: |
+          cd infrastructure
+          terraform fmt -check -recursive
+          terraform validate
+
+  apply:
+    name: Apply Terraform Code
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          terraform_version: 1.5.0
 
-      - name: Install dependencies 👨🏻‍💻
-        run: npm ci --prefer-offline --no-audit
-
-      - name: Run linter 👀
-        run: npm run lint
-
+      - name: Apply Terraform code
+        run: |
+          cd infrastructure
+          terraform init
+          terraform apply -auto-approve

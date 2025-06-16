@@ -17,7 +17,14 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "curl -sL 'https://raw.githubusercontent.com/crossplane/crossplane/master/install.sh' | XP_VERSION=v1.16.0 sh"
+	// "postCreateCommand": "curl -sL 'https://raw.githubusercontent.com/crossplane/crossplane/master/install.sh' | XP_VERSION=v1.16.0 sh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-azureterraform"
+			]
+		}
+	}
 
 	// Configure tool-specific properties.
 	// "customizations": {},

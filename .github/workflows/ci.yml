@@ -101,6 +101,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: tfplan
+          path: infrastructure
 
       - name: Apply Terraform code
         run: |

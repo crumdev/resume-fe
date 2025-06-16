@@ -26,6 +26,7 @@ jobs:
     name: Lint Terraform Code
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/main'
+    environment: Azure   # This line links the job to your 'Azure' environment
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -51,6 +52,7 @@ jobs:
     name: Apply Terraform Code
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    environment: Azure   # This line links the job to your 'Azure' environment
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

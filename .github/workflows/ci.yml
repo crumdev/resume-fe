@@ -45,8 +45,8 @@ jobs:
         run: |
           cd infrastructure
           terraform init
-          terraform fmt -check -recursive
-          terraform validate
+          terraform fmt -check -recursive >> $GITHUB_OUTPUT
+          terraform validate >> $GITHUB_OUTPUT
 
   apply:
     name: Apply Terraform Code

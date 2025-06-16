@@ -16,6 +16,7 @@ on:
       - 'hotfix/*'
       
 env:
+  TF_VERSION: 1.7.1
   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
@@ -34,7 +35,7 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: 1.5.0
+          terraform_version: ${{ env.TF_VERSION }}
       
       - name: Azure Login
         uses: azure/login@v1
@@ -45,8 +46,8 @@ jobs:
         run: |
           cd infrastructure
           terraform init
-          terraform fmt -check -recursive 
-          terraform validate >> $GITHUB_OUTPUT
+          terraform fmt -check -recursive
+          terraform validate
 
   apply:
     name: Apply Terraform Code
@@ -60,7 +61,7 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: 1.5.0
+          terraform_version: ${{ env.TF_VERSION }}
       
       - name: Azure Login
         uses: azure/login@v1

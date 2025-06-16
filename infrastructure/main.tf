@@ -4,11 +4,11 @@ resource "azurerm_resource_group" "rg-eastus-resume-fe" {
 }
 
 resource "azurerm_storage_account" "sa-eastus-resume-fe" {
-  name                = "sacrumdevresumefe"
-  resource_group_name = azurerm_resource_group.rg-eastus-resume-fe.name
-  location            = azurerm_resource_group.rg-eastus-resume-fe.location
-  account_tier        = "Standard"
-  account_kind        = "StorageV2"
+  name                     = "sacrumdevresumefe"
+  resource_group_name      = azurerm_resource_group.rg-eastus-resume-fe.name
+  location                 = azurerm_resource_group.rg-eastus-resume-fe.location
+  account_tier             = "Standard"
+  account_kind             = "StorageV2"
   account_replication_type = "LRS"
 }
 
@@ -21,12 +21,12 @@ resource "azurerm_storage_account_static_website" "sw-eastus-resume-fe" {
 
 locals {
   mime_types = jsondecode(file("${path.module}/mime.json"))
-  site_path = "${path.root}/src"
+  site_path  = "${path.root}/src"
 }
 
 
 resource "azurerm_storage_blob" "static_site_files" {
-  for_each = fileset("${path.root}/../src/", "**/*")
+  for_each               = fileset("${path.root}/../src/", "**/*")
   name                   = basename(each.key)
   storage_account_name   = azurerm_storage_account.sa-eastus-resume-fe.name
   storage_container_name = "$web"

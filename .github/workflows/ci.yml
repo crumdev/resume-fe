@@ -34,10 +34,11 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.5.0
-      
+
       - name: Lint Terraform code
         run: |
           cd infrastructure
+          terraform init
           terraform fmt -check -recursive
           terraform validate
 

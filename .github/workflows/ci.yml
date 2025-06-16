@@ -68,7 +68,9 @@ jobs:
           terraform init
 
       - name: Terraform Plan
-        run: terraform plan -out=tfplan
+        run: |
+          cd infrastructure
+          terraform plan -out=tfplan
       
       - name: Upload Plan Artifact
         uses: actions/upload-artifact@v4

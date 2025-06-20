@@ -4,11 +4,18 @@ terraform {
       source  = "hashicorp/azurerm"
       version = ">= 3.0.0"
     }
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 5"
+    }
   }
 }
 
 provider "azurerm" {
   features {}
+}
+
+provider "cloudflare" {
 }
 
 terraform {

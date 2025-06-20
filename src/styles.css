@@ -1,0 +1,17 @@
+@media (max-width: 600px) {
+  header.container-fluid nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  header.container-fluid nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+    margin: 0 0 0.1rem 0;
+  }
+  header.container-fluid nav ul li {
+    margin-bottom: 0.1rem;
+  }
+}

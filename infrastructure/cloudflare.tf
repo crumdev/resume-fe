@@ -8,8 +8,8 @@ resource "cloudflare_zone" "crumdev" {
 
 resource "cloudflare_dns_record" "cname_azure_static_resume_fe" {
   zone_id = cloudflare_zone.crumdev.id
-  name = "@"
-  type = "CNAME"
+  name    = "@"
+  type    = "CNAME"
   comment = "Cname to Azure Static Resume Frontend"
   content = azurerm_storage_account.sa-eastus-resume-fe.primary_web_host
   proxied = true

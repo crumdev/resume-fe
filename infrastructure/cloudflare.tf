@@ -16,5 +16,5 @@ resource "cloudflare_dns_record" "cname_azure_static_resume_fe" {
   settings = {
     ipv4_only = true
   }
-  ttl = 3600
+  ttl = 1
 }

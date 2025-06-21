@@ -13,5 +13,5 @@ resource "cloudflare_dns_record" "cname_azure_static_resume_fe" {
   comment = "Cname to Azure Static Resume Frontend"
   content = azurerm_storage_account.sa-eastus-resume-fe.primary_web_host
   proxied = true
-  ttl = 1
+  ttl     = 1
 }

@@ -36,25 +36,3 @@ resource "azurerm_storage_blob" "static_site_files" {
 
   content_type = lookup(local.mime_types, try(regex("\\.[^.]+$", each.value), "default.txt"), "text")
 }
-
-# resource "azurerm_cdn_profile" "resume_fe_cdn" {
-#   name                = "resume-fe-cdn"
-#   resource_group_name = azurerm_resource_group.resume_fe.name
-#   location            = azurerm_resource_group.resume_fe.location
-#   sku                 = "Standard_Microsoft"
-# }
-
-# resource "azurerm_cdn_endpoint" "resume_fe_cdn_endpoint" {
-#   name                = "resume-fe-cdn-endpoint"
-#   profile_name        = azurerm_cdn_profile.resume_fe_cdn.name
-#   resource_group_name = azurerm_resource_group.resume_fe.name
-#   location            = azurerm_resource_group.resume_fe.location
-#   origin_host_header  = azurerm_storage_account.sa-eastus-resume-fe.primary_web_host
-#   origin_path         = "/${azurerm_storage_container.resume_fe_container.name}"
-#   is_http_allowed     = false
-#   is_https_allowed    = true
-# }
-
-# output "cdn_endpoint" {
-#   value = azurerm_cdn_endpoint.resume_fe_cdn_endpoint.host_name
-# }

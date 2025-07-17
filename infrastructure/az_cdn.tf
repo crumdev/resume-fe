@@ -27,9 +27,5 @@ resource "azurerm_cdn_endpoint_custom_domain" "example" {
 }
 
 output "cdn_endpoint" {
-  value = azurerm_cdn_endpoint.resume_fe_cdn_endpoint.origin
-}
-
-output "cdn_endpoint_hostname" {
-  value = azurerm_cdn_endpoint.resume_fe_cdn_endpoint.host_name
+  value = azurerm_cdn_endpoint.resume_fe_cdn_endpoint.fqdn
 }

@@ -11,7 +11,7 @@ resource "cloudflare_dns_record" "cname_azure_static_resume_fe" {
   name    = "@" # or "www" if you want www.crumdev.com
   type    = "CNAME"
   comment = "CNAME to Azure CDN for Resume Frontend"
-  content = azurerm_cdn_endpoint.resume_fe_cdn_endpoint.host_name
+  content = azurerm_cdn_endpoint.resume_fe_cdn_endpoint.fqdn
   proxied = true
   ttl     = 1
 }

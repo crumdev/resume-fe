@@ -26,7 +26,7 @@ locals {
 
 
 resource "azurerm_storage_blob" "static_site_files" {
-  
+
   for_each               = fileset("${path.root}/../src/", "**/*")
   name                   = basename(each.key)
   storage_account_name   = azurerm_storage_account.sa-eastus-resume-fe.name

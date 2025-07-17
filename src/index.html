@@ -12,109 +12,122 @@
 <body>
     <header class="container-fluid">
         <h1>Nathan Crum - Resume</h1> 
-        <nav>
+        <nav aria-label="Main navigation">
             <ul>
                 <li><strong><a id="linkdedin" href="http://linkedin.com/in/crumdev">Linkedin</a></strong></li>
             </ul>
             <ul>
                 <li><a href="#summary">Summary</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#work-experience">Work Experience</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#education">Education</a></li>
             </ul>
         </nav>
     </header>
-    <main class="container-fluid">
-        <h2 id="summary">Summary</h2>
-        <hr>
-        <ul>
-            <li>5+ years DevOps/Site Reliability Engineering Experience</li>
-            <li>Saved company $480k/yr migrating legacy applications to Kubernetes</li>
-            <li>Reduced Ansible onboarding time by 88% with dev containers & VSCode</li>
-            <li>Decreased demo environment deployment times by 75% through Jenkins pipeline optimization</li>
-            <li>Consolidating 2000+ CICD workflows into GitHub Actions</li>
-        </ul>
-        <h2 id="work-experience">Work Experience</h2>
-        <hr>
-        <h3>Senior Specialist Application Engineer</h3>
-        <h4>Waystar, Inc | April 2020 - Present</h4>
-        <ul>
-            <li>
-                Provided technical advisory support to developer teams, resulting in improved cloud governance and cost
-                optimization opportunities. Developed strong cross function relationships and influenced strategic
-                direction.
-            </li>
-            <li>
-                Expertly managed 24/7 on-call rotation, provided Level 2/3 escalation support, and maintained client
-                relationships
-                for operations and cloud services.
-            </li>
-            <li>
-                Guided and developed Ops team, implementing standards and policies for efficient operations and building
-                strong
-                internal/external relationships.
-            </li>
-            <li>Improved developer experience by reducing deployment times by 75% through Jenkins pipeline optimizations
-            </li>
-            <li>
-                Collaborate with teams to manage cloud-based infrastructure and develop CI/CD pipelines supporting
-                production,
-                monitoring, and operations for healthcare company.
-            </li>
-            <li>Automated configuration and deployment of Kubernetes clusters using Ansible playbooks.</li>
-            <li>
-                Led the effort for evaluating and implementing appropriate controls within our team's domain for SOC2,
-                PCI, and
-                HIPAA requirements.
-            </li>
-        </ul>
-        <h3>Software Engineer</h3>
-        <h4>BrightSpring Health Services | September 2018 - April 2020</h4>
-        <ul>
-            <li>Created a high-performance .NET Core application that reduced completion time for a critical data
-                aggregation process by over 80%, significantly improving operational efficiency.</li>
-            <li>Consolidated data from multiple acquisitions into a centralized Kronos system using API consumption,
-                custom C# console applications, and the Workforce Integration Manager, ensuring accurate data
-                consolidation and reporting.</li>
-            <li>Championed a successful migration of the company's codebase from an on-premises TFS instance to Git
-                repositories on Azure DevOps, streamlining development processes and enhancing collaboration.</li>
-            <li>Identified and upgraded C# and VB console applications to meet TLS 1.2 compliance standards, enhancing
-                security and data protection.</li>
-            <li>Drove database modernization by migrating an application database from Oracle Database 9i to SQL Server
-                2016, ensuring compatibility with modern tools and technologies.</li>
-            <li>Supported a Python codebase for automating data collection and reporting from the QuickBase SaaS
-                application, ensuring data availability and accuracy.</li>
-            <li>Create and maintain batch/powershell scripts for automating business and inter-server processes such as
-                file cleanup and SFTP retrieval/transmission.</li>
-            <li>Maintained and created ASP.NET MVC web applications to support internal business processes.</li>
-        </ul>
-        <h3>Manager - Global Network Operations Center</h3>
-        <h4>Conduent | April 2015 - September 2018</h4>
-        <ul>
-            <li>Automated Cisco Firewall configuration audit using python for 200 firewalls, reducing single firewall
-                audit time by 99% from 1 hour to seconds.</li>
-            <li>Developed a portable Virtual Windows Deployment Server environment for remote deployments, scaling
-                infrastructure provisioning capabilities without on-premises infrastructure.</li>
-            <li>Automated Active Directory user creation and software updates with PowerShell scripts, streamlining
-                daily tasks and improving efficiency.</li>
-        </ul>
-        <h2 id="certifications">Certifications</h2>
-        <hr>
-        <ul>
-            <li>AWS Certified Solutions Architect - Associate | Aug 2023</li>
-            <li>Microsoft Certified: Azure Administrator Associate | Jan 2024</li>
-            <li>Hashicorp Certified Tereform Associate | Apr 2024</li>
-            <li>Kubernetes Fundamentals Lfs258 | Jan 2020</li>
-        </ul>
-        <h2 id="education">Education</h2>
-        <hr>
-        <ul>
-            <li>Code Louisville - Certificate of Completion in Front End Web Development (HTML, CSS, JS) | Treehouse •
-                Dec 2017</li>
-            <li>Code Louisville - Certificate of Completion in C#/.Net Framwork (C#, .Net, .Net Core, Entity Framework,
-                SQL) | Treehouse • Dec 2017</li>
-            <li>Bachelors of Art in Media Communication | Asbury University</li>
-        </ul>
+    <main class="container-fluid" aria-label="Resume content">
+        <section class="card highlight-section" aria-labelledby="summary">
+            <h2 id="summary">Summary</h2>
+            <hr>
+            <p>
+                Highly motivated and results-oriented DevOps Engineer with 10+ combined years of experience in DevOps automation, cloud migration, and software development. Proven ability to lead large-scale migrations, design and implement company best practices, and troubleshoot complex production issues across diverse platforms. Skilled in Ansible, Terraform, Kubernetes, GitHub, Azure DevOps, and various CI/CD tools. Passionate about driving innovation and improving operational efficiency through automation.
+            </p>
+        </section>
+        <section class="card highlight-section" aria-labelledby="skills">
+            <h2 id="skills">Skills</h2>
+            <hr>
+            <ul>
+                <li><strong>Infrastructure as Code:</strong> Ansible, Terraform</li>
+                <li><strong>CI/CD:</strong> GitHub Actions, Azure DevOps, Jenkins, Octopus</li>
+                <li><strong>Cloud Platforms:</strong> Azure, AWS</li>
+                <li><strong>Version Control:</strong> Git, TFVC</li>
+                <li><strong>Programming Languages:</strong> C#, Python, Go</li>
+                <li><strong>Other Tools:</strong> Bash, PowerShell, Kubernetes, Docker, Helm, Rancher RKE and RKE2</li>
+            </ul>
+        </section>
+        <section class="card highlight-section" aria-labelledby="work-experience">
+            <h2 id="work-experience">Work Experience</h2>
+            <hr>
+            <section class="card highlight-section" aria-labelledby="senior-devops-engineer">
+                <h3 id="senior-devops-engineer">Senior DevOps Engineer</h3>
+                <h4>First Horizon Bank | Jun. 2024 - Present</h4>
+                <ul>
+                    <li>Collaborate with cross-functional teams to educate and promote the adoption of Azure cloud services, enhancing team proficiency and project efficiency.</li>
+                    <li>Guide application teams on leveraging a comprehensive library of Infrastructure-as-Code (IAC) modules developed with Crossplane, streamlining deployment processes.</li>
+                    <li>Write Ansible playbooks for infrastructure configuration and legacy application deployments.</li>
+                    <li>Update and maintain Jenkins CICD pipelines.</li>
+                    <li>Provide guidance in troubleshooting and optimizing Kubernetes-deployed applications, ensuring robust performance and reliability.</li>
+                    <li>Work with Architects to design and implement scalable Azure infrastructure solutions to support organizational growth and operational excellence.</li>
+                    <li>Mentor and develop a growing team of Junior DevOps Engineers, fostering skill development and promoting best practices in cloud and DevOps methodologies.</li>
+                </ul>
+            </section>
+            <section class="card highlight-section" aria-labelledby="senior-software-engineer">
+                <h3 id="senior-software-engineer">Senior Software Engineer</h3>
+                <h4>Waystar, Inc. | Mar. 2020 - Jun. 2024</h4>
+                <ul>
+                    <li>Wrote issueOps automation to migrate company from Bitbucket, TFS, and Azure DevOps to GitHub Enterprise using GitHub Actions.</li>
+                    <li>Automated configuration and deployment of Kubernetes clusters using Ansible playbooks.</li>
+                    <li>Improved developer experience by reducing deployment times by 75% through Jenkins pipeline optimizations.</li>
+                    <li>Debug and maintenance of custom internal CICD platform written in C#.</li>
+                    <li>Provided technical advisory support to developer teams, resulting in improved cloud governance and cost optimization opportunities. Developed strong cross functional relationships and influenced strategic direction.</li>
+                    <li>Expertly managed 24/7 on-call rotation, provided Level 2/3 escalation support, and maintained client relationships for operations and cloud services.</li>
+                    <li>Guided and developed Ops team, implementing standards and policies for efficient operations and building strong internal/external relationships.</li>
+                    <li>Collaborated with teams to manage cloud-based infrastructure and develop CI/CD pipelines supporting production, monitoring, and operations for healthcare companies.</li>
+                    <li>Led the effort for evaluating and implementing appropriate controls within our team's domain for SOC2, PCI, and HIPAA requirements.</li>
+                </ul>
+            </section>
+            <section class="card highlight-section" aria-labelledby="software-engineer">
+                <h3 id="software-engineer">Software Engineer</h3>
+                <h4>BrightSpring Health Services | Sep. 2018 - Apr. 2020</h4>
+                <ul>
+                    <li>Created a high-performance .NET Core application that reduced completion time for a critical data aggregation process by over 80%, significantly improving operational efficiency.</li>
+                    <li>Maintained and created ASP.NET MVC web applications to support internal business processes.</li>
+                    <li>Learned Angular 3 to update and complete remaining features of abandoned SPA application.</li>
+                    <li>Consolidated data from multiple acquisitions into a centralized Kronos system using API consumption, custom C# console applications, and the Workforce Integration Manager, ensuring accurate data consolidation and reporting.</li>
+                    <li>Championed a successful migration of the company's codebase from an on-premises TFS instance to Git repositories on Azure DevOps, streamlining development processes and enhancing collaboration.</li>
+                    <li>Identified and upgraded C# and VB console applications to meet TLS 1.2 compliance standards, enhancing security and data protection.</li>
+                    <li>Drove database modernization by migrating an application database from Oracle Database 9i to SQL Server 2016, ensuring compatibility with modern tools and technologies.</li>
+                    <li>Supported a Python codebase for automating data collection and reporting from the QuickBase SaaS application, ensuring data availability and accuracy.</li>
+                </ul>
+            </section>
+            <section class="card highlight-section" aria-labelledby="manager-gnoc">
+                <h3 id="manager-gnoc">Manager - Global Network Operations Center</h3>
+                <h4>Conduent | Apr. 2015 - Sep. 2018</h4>
+                <ul>
+                    <li>Automated Cisco Firewall configuration audit using python for 200 firewalls, reducing single firewall audit time by 99% from 1 hour to seconds.</li>
+                    <li>Developed a portable Virtual Windows Deployment Server environment for remote deployments, scaling infrastructure provisioning capabilities without on-premises infrastructure.</li>
+                    <li>Automated Active Directory user creation and software updates with PowerShell scripts, streamlining daily tasks and improving efficiency.</li>
+                </ul>
+            </section>
+            <section class="card highlight-section" aria-labelledby="interim-manager">
+                <h3 id="interim-manager">Interim Manager/Senior Academic Technology Associate</h3>
+                <h4>Asbury Seminary | Jul. 2014 - Apr. 2015</h4>
+                <ul>
+                    <li>Implemented FAQ automation in Moodle platform, reducing daily support inquiries, freeing up IT staff for proactive projects and system enhancements.</li>
+                    <li>Led cross-functional team in integrating a new Campus CRM, improving collaboration and communication between development, support, and IT staff.</li>
+                    <li>Automated computer image deployment with Windows Deployment Server, reducing manual imaging time by 90% and ensuring consistent, up-to-date software configurations.</li>
+                </ul>
+            </section>
+        </section>
+        <section class="card highlight-section" aria-labelledby="certifications">
+            <h2 id="certifications">Certifications</h2>
+            <hr>
+            <ul>
+                <li>AWS Certified Solutions Architect - Associate | Aug 2023</li>
+                <li>Microsoft Certified: Azure Administrator Associate | Jan 2024</li>
+                <li>Hashicorp Certified Terraform Associate | Apr 2024</li>
+                <li>Kubernetes Fundamentals Lfs258 | Jan 2020</li>
+            </ul>
+        </section>
+        <section class="card highlight-section" aria-labelledby="education">
+            <h2 id="education">Education</h2>
+            <hr>
+            <ul>
+                <li>Code Louisville - Certificate of Completion in Front End Web Development (HTML, CSS, JS) | Treehouse • Dec 2017</li>
+                <li>Code Louisville - Certificate of Completion in C#/.Net Framework (C#, .Net, .Net Core, Entity Framework, SQL) | Treehouse • Dec 2017</li>
+                <li>Bachelors of Art in Media Communication | Asbury University</li>
+            </ul>
+        </section>
     </main>
 </body>
 

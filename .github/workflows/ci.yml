@@ -45,7 +45,7 @@ jobs:
 
   plan:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
     steps:
       - uses: actions/checkout@v4
       
@@ -63,6 +63,7 @@ jobs:
           terraform init
 
       - name: Terraform Plan
+        id: tfplan
         run: |
           cd infrastructure
           terraform plan -out=tfplan
@@ -77,7 +78,7 @@ jobs:
     name: Apply Terraform Code
     needs: plan
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.event.pull_request.merged == true || github.ref == 'refs/heads/main'
     environment: Azure   # This line links the job to your 'Azure' environment
     steps:
       - uses: actions/checkout@v4

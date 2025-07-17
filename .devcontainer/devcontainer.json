@@ -7,7 +7,8 @@
 	"features": {
 		"ghcr.io/devcontainers/features/azure-cli:1": {},
 		"ghcr.io/devcontainers/features/terraform:1": {},
-		"ghcr.io/stuartleeks/dev-container-features/azure-cli-persistence:0": {}
+		"ghcr.io/stuartleeks/dev-container-features/azure-cli-persistence:0": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -21,7 +22,12 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-azuretools.vscode-azureterraform"
+				"ms-azuretools.vscode-azureterraform",
+				"GitHub.copilot-chat",
+				"GitHub.copilot",
+				"GitHub.vscode-pull-request-github",
+				"ms-azuretools.vscode-azure-github-copilot",
+				"github.vscode-github-actions"
 			]
 		}
 	}

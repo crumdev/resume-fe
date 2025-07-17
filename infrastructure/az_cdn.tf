@@ -23,10 +23,13 @@ resource "azurerm_cdn_endpoint" "resume_fe_cdn_endpoint" {
 resource "azurerm_cdn_endpoint_custom_domain" "example" {
   name            = "crumdev"
   cdn_endpoint_id = azurerm_cdn_endpoint.resume_fe_cdn_endpoint.id
-  # Use the Cloudflare zone name as the custom domain
-  host_name = cloudflare_zone.crumdev.name
+  host_name       = "crumdev.com" # or "www.crumdev.com"
 }
 
 output "cdn_endpoint" {
   value = azurerm_cdn_endpoint.resume_fe_cdn_endpoint.origin
+}
+
+output "cdn_endpoint_hostname" {
+  value = azurerm_cdn_endpoint.resume_fe_cdn_endpoint.host_name
 }

@@ -8,6 +8,9 @@ on:
       - 'feature/*'
       - 'bugfix/*'
       - 'hotfix/*'
+  pull_request:
+    branches:
+      - main
       
 env:
   TF_VERSION: 1.12.2
@@ -42,10 +45,10 @@ jobs:
           terraform init
           terraform fmt -check -recursive -diff
           terraform validate
-
+          
   plan:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    if: (github.event_name == 'pull_request' && github.base_ref == 'main') || (github.event_name == 'push' && github.ref == 'refs/heads/main')
     steps:
       - uses: actions/checkout@v4
       
@@ -78,7 +81,7 @@ jobs:
     name: Apply Terraform Code
     needs: plan
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true || github.ref == 'refs/heads/main'
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
     environment: Azure   # This line links the job to your 'Azure' environment
     steps:
       - uses: actions/checkout@v4

@@ -13,7 +13,7 @@ on:
       - main
       
 env:
-  TF_VERSION: 1.12.2
+  TF_VERSION: 1.14.4
   CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
@@ -54,6 +54,8 @@ jobs:
       
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
       
       - name: Azure Login
         uses: azure/login@v2.3.0

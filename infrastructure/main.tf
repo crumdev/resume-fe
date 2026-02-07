@@ -26,14 +26,13 @@ locals {
 
 
 resource "azurerm_storage_blob" "static_site_files" {
-
   for_each               = fileset("${path.root}/../src/", "**/*")
-  name                   = basename(each.key)
+  name                   = each.key
   storage_account_name   = azurerm_storage_account.sa-eastus-resume-fe.name
   storage_container_name = "$web"
   type                   = "Block"
   source                 = "${path.root}/../src/${each.key}"
   content_md5            = filemd5("${path.root}/../src/${each.key}")
 
-  content_type = lookup(local.mime_types, try(regex("\\.[^.]+$", each.value), "default.txt"), "text")
+  content_type = lookup(local.mime_types, try(regex("\\.[^.]+$", each.value), "default.txt"), "text/plain")
 }

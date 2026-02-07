@@ -9,3 +9,7 @@ output "storage_account_name" {
 output "primary_web_host" {
   value = azurerm_storage_account.sa-eastus-resume-fe.primary_web_host
 }
+
+output "static_website_url" {
+  value = azurerm_storage_account.sa-eastus-resume-fe.primary_web_endpoint
+}

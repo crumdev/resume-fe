@@ -12,10 +12,12 @@ terraform {
 }
 
 provider "azurerm" {
+  subscription_id = "bf85ae72-724c-48ae-88a8-8910937babb3"
   features {}
 }
 
 provider "cloudflare" {
+  # Reads from CLOUDFLARE_API_TOKEN environment variable
 }
 
 terraform {
